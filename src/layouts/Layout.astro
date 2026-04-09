@@ -2,52 +2,160 @@
 export interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
 }
+
 const {
-  title = 'Ñañez & Co. Electricidad | Salto, Buenos Aires',
-  description = 'Soluciones eléctricas residenciales y comerciales con respaldo industrial. Instalaciones, mantenimiento y urgencias 24h en Salto, Pergamino, Arrecifes y zona.',
+  title = 'Ñañez & Co. Electricidad | Electricista Matriculado en Salto, Bs.As.',
+  description = 'Electricista matriculado en Salto, Buenos Aires. Instalaciones eléctricas residenciales y comerciales, tableros, urgencias y mantenimiento. Zona Pergamino, Arrecifes y alrededores.',
+  ogImage = '/og-image.webp',
+  canonicalURL = Astro.url.href,
 } = Astro.props;
+
+const siteURL = 'https://nanezelectricidad.com.ar';
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteURL}${ogImage}`;
 ---
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="electricista matriculado Salto, instalaciones eléctricas Salto Buenos Aires, electricista Pergamino, electricista Arrecifes, tableros eléctricos, urgencias eléctricas, mantenimiento eléctrico, Ñañez electricidad" />
     <meta name="robots" content="index, follow" />
+    <meta name="author" content="Ñañez & Co. Electricidad" />
+    <meta name="geo.region" content="AR-B" />
+    <meta name="geo.placename" content="Salto, Buenos Aires, Argentina" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/logo.png" />
-    <meta property="og:type" content="website" />
-    <title>{title}</title>
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ñañez & Co. Electricidad – Salto, Buenos Aires" />
+    <meta property="og:site_name" content="Ñañez & Co. Electricidad" />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullOgImage} />
+
+    <!-- WhatsApp / iMessage preview (uses OG tags above) -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="/logo.webp" />
+    <link rel="apple-touch-icon" href="/logo.webp" />
+
+    <!-- Preload fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ElectricalContractor",
+      "name": "Ñañez & Co. Electricidad",
+      "description": "Electricista matriculado en Salto, Buenos Aires. Instalaciones residenciales y comerciales.",
+      "url": "https://nanezelectricidad.com.ar",
+      "telephone": "+5492474472101",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Salto",
+        "addressRegion": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "areaServed": ["Salto", "Pergamino", "Arrecifes", "Rojas"],
+      "logo": "https://nanezelectricidad.com.ar/logo.webp",
+      "image": "https://nanezelectricidad.com.ar/og-image.webp",
+      "sameAs": [
+        "https://instagram.com/nanezelectricidad",
+        "https://facebook.com/nanezelectricidad"
+      ]
+    }
+    </script>
+
     <style>
       :root {
-        --c-carbon:   #1A1A1A;
-        --c-charcoal: #222222;
-        --c-dark:     #141414;
-        --c-steel:    #2E2E2E;
-        --c-mid:      #3A3A3A;
-        --c-silver:   #B0B0B0;
-        --c-light:    #E8E8E8;
-        --c-white:    #F5F5F5;
-        --c-orange:   #FF8C00;
-        --c-orange-h: #E67E00;
-        --c-muted:    #888888;
+        --c-dark:    #0D0D0D;
+        --c-carbon:  #111111;
+        --c-charcoal:#1A1A1A;
+        --c-steel:   #2A2A2A;
+        --c-mid:     #383838;
+        --c-silver:  #A8A8A8;
+        --c-light:   #E0E0E0;
+        --c-white:   #F4F4F4;
+        --c-orange:  #FF8C00;
+        --c-orange-l:#FFA733;
+        --c-muted:   #777777;
       }
-      html { background-color: var(--c-dark); }
-      body { font-family: 'DM Sans', 'Segoe UI', sans-serif; color: var(--c-light); }
+      html { background: var(--c-dark); scroll-behavior: smooth; }
+      body {
+        font-family: 'Inter', 'DM Sans', sans-serif;
+        color: var(--c-light);
+        -webkit-font-smoothing: antialiased;
+      }
       ::selection { background: var(--c-orange); color: #111; }
       ::-webkit-scrollbar { width: 5px; }
       ::-webkit-scrollbar-track { background: var(--c-carbon); }
       ::-webkit-scrollbar-thumb { background: var(--c-steel); border-radius: 3px; }
       ::-webkit-scrollbar-thumb:hover { background: var(--c-orange); }
+
+      /* Gradient text utility */
+      .text-gradient {
+        background: linear-gradient(90deg, #FF8C00 0%, #FFD700 50%, #FFA733 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        background-size: 200% auto;
+      }
+      .text-gradient-animated {
+        background: linear-gradient(90deg, #FF8C00, #FFD700, #FF8C00);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 3s linear infinite;
+      }
+      @keyframes shimmer {
+        from { background-position: 200% center; }
+        to   { background-position: -200% center; }
+      }
+
+      /* Card glow on hover */
+      .card-glow {
+        transition: box-shadow .3s ease, transform .3s ease, border-color .3s ease;
+      }
+      .card-glow:hover {
+        box-shadow: 0 0 0 1px rgba(255,140,0,.35), 0 8px 32px rgba(255,140,0,.12);
+        transform: translateY(-3px);
+        border-color: rgba(255,140,0,.3) !important;
+      }
+      /* Image work hover */
+      .work-img {
+        transition: transform .5s ease, filter .5s ease;
+        filter: brightness(.88) saturate(.85);
+      }
+      .work-img:hover {
+        transform: scale(1.04);
+        filter: brightness(1) saturate(1);
+      }
     </style>
   </head>
-  <body class="bg-brand-dark antialiased">
+  <body class="bg-brand-dark">
     <slot />
   </body>
 </html>

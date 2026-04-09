@@ -1,116 +1,123 @@
 ---
+const WA = 'https://wa.me/5492474472101?text=Hola!%20Tengo%20una%20consulta%20sobre%20un%20trabajo%20eléctrico.';
+
 const services = [
   {
-    title: 'Electricidad Hogareña',
-    desc:  'Reparaciones, tableros, cableados y nuevas instalaciones. Trabajo prolijo bajo normativa vigente.',
-    tag:   'Residencial',
+    tag: 'Residencial',
+    title: 'Instalaciones Hogareñas',
+    desc: 'Tableros, cableados, tomas y llaves. Nuevas instalaciones y corrección de fallas con materiales de primera calidad.',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>`,
   },
   {
+    tag: 'Preventivo',
     title: 'Mantenimiento Preventivo',
-    desc:  'Diagnóstico de fallas y optimización de consumo eléctrico antes de que el problema escale.',
-    tag:   'Preventivo',
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/>`,
+    desc: 'Diagnóstico eléctrico integral, detección de fallas ocultas y optimización del consumo antes de que escalen.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63"/>`,
   },
   {
-    title: 'Urgencias 24 Horas',
-    desc:  'Atención rápida para cortes, cortocircuitos y cualquier emergencia eléctrica. Siempre disponibles.',
-    tag:   'Urgencias',
+    tag: 'Imprevistos',
+    title: 'Atención ante Imprevistos',
+    desc: 'Cortes de luz, cortocircuitos y fallas urgentes. Respondemos rápido cuando más lo necesitás.',
     highlight: true,
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>`,
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>`,
   },
   {
+    tag: 'Industrial',
     title: 'Comercios e Industrias',
-    desc:  'Instalaciones trifásicas, tableros de comando y mantenimiento para exigencias industriales.',
-    tag:   'Industrial',
+    desc: 'Instalaciones trifásicas, tableros de comando, automatizaciones y mantenimiento en entornos de alta exigencia.',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/>`,
   },
 ];
 ---
 
-<section id="servicios" class="relative py-28 overflow-hidden" style="background:#141414;">
+<section id="servicios" class="relative py-24 lg:py-32 overflow-hidden" style="background:#0D0D0D;">
 
-  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(255,140,0,0.4),transparent);"></div>
+  <!-- Top accent -->
+  <div class="absolute top-0 left-0 right-0 h-px"
+    style="background:linear-gradient(90deg,transparent,rgba(255,140,0,.4),transparent);"></div>
 
   <div class="max-w-7xl mx-auto px-5 lg:px-10">
 
-    <!-- Header -->
+    <!-- Section header -->
     <div class="mb-14">
       <div class="flex items-center gap-3 mb-4">
-        <span class="w-8 h-px bg-brand-orange"></span>
-        <span class="text-brand-orange text-[10px] font-body font-600 tracking-widest uppercase">Nuestros Servicios</span>
+        <span class="w-8 h-0.5 rounded-full" style="background:#FF8C00;"></span>
+        <span class="text-[10px] font-body font-600 tracking-widest uppercase" style="color:#FF8C00;">Nuestros Servicios</span>
       </div>
-      <h2 class="font-display font-800 text-4xl md:text-6xl text-brand-white leading-tight">
-        TODO LO QUE <span class="text-brand-orange">NECESITÁS.</span>
+      <h2 class="font-display font-700 text-4xl md:text-5xl lg:text-6xl text-brand-white leading-tight">
+        TODO LO QUE<br />
+        <span class="text-gradient">NECESITÁS.</span>
       </h2>
+      <p class="text-brand-silver font-body font-300 mt-4 max-w-lg text-base leading-relaxed">
+        Electricista matriculado en Salto con experiencia en instalaciones residenciales,
+        comerciales e industriales.
+      </p>
     </div>
 
-    <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-px rounded-2xl overflow-hidden" style="background:#2E2E2E;border:1px solid #2E2E2E;">
+    <!-- Services grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {services.map(s => (
         <article
-          class={`group relative p-8 lg:p-10 transition-all duration-300 ${s.highlight ? '' : ''}`}
+          class="card-glow relative p-7 lg:p-8 rounded-2xl border overflow-hidden"
           style={s.highlight
-            ? 'background:rgba(255,140,0,0.06);'
-            : 'background:#1A1A1A;'}
-          onmouseenter={`this.style.background='${s.highlight ? 'rgba(255,140,0,0.11)' : 'rgba(46,46,46,0.7)'}'`}
-          onmouseleave={`this.style.background='${s.highlight ? 'rgba(255,140,0,0.06)' : '#1A1A1A'}'`}
+            ? 'background:rgba(255,140,0,0.06);border-color:rgba(255,140,0,0.2);'
+            : 'background:#111111;border-color:#2A2A2A;'}
         >
+          <!-- Corner accent for highlighted -->
           {s.highlight && (
-            <div class="absolute top-0 right-0 w-0 h-0" style="border-top:52px solid rgba(255,140,0,0.2);border-left:52px solid transparent;"></div>
+            <div class="absolute top-0 right-0 w-24 h-24 pointer-events-none"
+              style="background:radial-gradient(circle at top right, rgba(255,140,0,0.15) 0%, transparent 70%);">
+            </div>
           )}
 
-          <div class="flex items-start gap-5">
-            <!-- Icon container -->
-            <div
-              class="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center transition-colors duration-300"
-              style={s.highlight ? 'background:rgba(255,140,0,0.2);' : 'background:#2E2E2E;'}
-            >
-              <svg
-                class="w-6 h-6 transition-colors duration-300"
-                style={s.highlight ? 'color:#FF8C00;' : 'color:#888888;'}
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                set:html={s.icon}
-              />
-            </div>
-
-            <div class="flex-1">
-              <span
-                class="inline-block text-[9px] font-body font-600 tracking-widest uppercase px-2 py-0.5 rounded-full mb-3"
-                style={s.highlight
-                  ? 'background:rgba(255,140,0,0.2);color:#FF8C00;'
-                  : 'background:#2E2E2E;color:#888888;'}
-              >
-                {s.tag}
-              </span>
-
-              <h3
-                class="font-display font-700 text-xl lg:text-2xl tracking-tight mb-2 transition-colors duration-200"
-                style={s.highlight ? 'color:#FFB347;' : 'color:#E8E8E8;'}
-              >
-                {s.title}
-              </h3>
-              <p class="text-brand-muted text-sm leading-relaxed font-body font-300">{s.desc}</p>
-            </div>
+          <!-- Icon -->
+          <div
+            class="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+            style={s.highlight ? 'background:rgba(255,140,0,0.15);' : 'background:#1A1A1A;'}
+          >
+            <svg
+              class="w-5 h-5"
+              style={s.highlight ? 'color:#FF8C00;' : 'color:#777777;'}
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              set:html={s.icon}
+            />
           </div>
+
+          <!-- Tag -->
+          <span
+            class="inline-block text-[9px] font-body font-600 tracking-widest uppercase px-2.5 py-1 rounded-full mb-3"
+            style={s.highlight
+              ? 'background:rgba(255,140,0,0.2);color:#FF8C00;'
+              : 'background:#1A1A1A;color:#777777;'}
+          >
+            {s.tag}
+          </span>
+
+          <h3
+            class="font-display font-600 text-xl lg:text-2xl mb-2 tracking-tight"
+            style={s.highlight ? 'color:#FFA733;' : 'color:#E0E0E0;'}
+          >
+            {s.title}
+          </h3>
+          <p class="text-brand-muted text-sm font-body font-300 leading-relaxed">{s.desc}</p>
         </article>
       ))}
     </div>
 
     <!-- Bottom CTA -->
     <div class="mt-10 text-center">
-      <p class="text-brand-muted text-sm mb-3">¿Tu trabajo no está en la lista?</p>
+      <p class="text-brand-muted text-sm mb-3 font-body">¿Tenés una consulta específica?</p>
       <a
-        href="https://wa.me/5492474472101?text=Hola!%20Tengo%20una%20consulta%20sobre%20un%20trabajo%20eléctrico."
+        href={WA}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 text-brand-orange hover:text-brand-light font-body font-500 text-sm underline underline-offset-4 transition-colors duration-200"
       >
-        Consultanos por WhatsApp →
+        Escribinos por WhatsApp →
       </a>
     </div>
   </div>

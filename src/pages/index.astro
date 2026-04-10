@@ -4,15 +4,21 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Services from '../components/Services.astro';
 import About from '../components/About.astro';
+import WorkGallery from '../components/WorkGallery.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout>
+<Layout
+  title="Ñañez & Co. Electricidad | Electricista Matriculado en Salto, Buenos Aires"
+  description="Electricista matriculado en Salto, Buenos Aires. Instalaciones eléctricas residenciales y comerciales, tableros, imprevistos y mantenimiento. Zona Pergamino, Arrecifes y alrededores."
+  ogImage="/og-image.webp"
+>
   <Header />
   <main>
     <Hero />
     <Services />
     <About />
+    <WorkGallery />
   </main>
   <Footer />
 </Layout>

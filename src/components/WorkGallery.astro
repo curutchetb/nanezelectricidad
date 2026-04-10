@@ -1,35 +1,38 @@
 ---
 const photos = [
   {
-    src:  './trabajando1.webp',
-    alt:  'Técnico electricista de Ñañez & Co. trabajando en instalación industrial en altura en Salto, Buenos Aires',
-    caption: 'Instalación en altura con equipo de seguridad certificado',
-    aspect: 'tall',
+    src: './trabajando1.webp',
+    alt: 'Técnico electricista de Ñañez & Co. trabajando en instalación industrial en altura en Salto, Buenos Aires',
+    caption: 'Instalación en altura con equipo certificado',
   },
   {
-    src:  './trabajando2.webp',
-    alt:  'Electricista matriculado de Ñañez & Co. en trabajo de mantenimiento eléctrico',
-    caption: 'Mantenimiento en planta — arnés y protocolos industriales',
-    aspect: 'wide',
+    src: './trabajando2.webp',
+    alt: 'Electricista matriculado de Ñañez & Co. en mantenimiento eléctrico industrial',
+    caption: 'Mantenimiento en planta — protocolos industriales',
   },
   {
-    src:  './trabajando3.webp',
-    alt:  'Técnico electricista con arnés de seguridad realizando trabajo en altura',
-    caption: 'Trabajo en altura con normativa de seguridad industrial',
-    aspect: 'tall',
+    src: './sergio1.webp',
+    alt: 'Sergio de Ñañez & Co. realizando ajustes en tablero eléctrico residencial',
+    caption: 'Precisión en tableros y protecciones',
+  },
+  {
+    src: './sergio2.webp',
+    alt: 'Sergio trabajando con herramientas profesionales de medición eléctrica',
+    caption: 'Diagnóstico y mediciones de seguridad',
+  },
+  {
+    src: './trabajando3.webp',
+    alt: 'Técnico electricista con arnés de seguridad realizando trabajo en altura',
+    caption: 'Trabajo en altura bajo normativa AEA',
   },
 ];
 ---
 
 <section id="trabajos" class="relative py-24 lg:py-32 overflow-hidden" style="background:#111111;">
-
-  <!-- Top accent -->
-  <div class="absolute top-0 left-0 right-0 h-px"
-    style="background:linear-gradient(90deg,transparent,rgba(255,140,0,.25),transparent);"></div>
+  <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(90deg,transparent,rgba(255,140,0,.25),transparent);"></div>
 
   <div class="max-w-7xl mx-auto px-5 lg:px-10">
-
-    <!-- Header -->
+    
     <div class="mb-14">
       <div class="flex items-center gap-3 mb-4">
         <span class="w-8 h-0.5 rounded-full" style="background:#FF8C00;"></span>
@@ -40,90 +43,35 @@ const photos = [
         <span class="text-gradient">REALES.</span>
       </h2>
       <p class="text-brand-silver font-body font-300 mt-4 max-w-lg text-base leading-relaxed">
-        Nuestra trayectoria habla por sí sola. Años trabajando en instalaciones industriales
-        de alta exigencia en la zona de Salto, Buenos Aires.
+        Nuestra trayectoria en Salto habla por sí sola. Galería de instalaciones industriales, mantenimiento y seguridad eléctrica.
       </p>
     </div>
 
-    <!-- Photo grid: asimétrico 3 columnas -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5">
-
-      <!-- Foto 1 — columna izquierda, altura completa (row span 2) -->
-      <div class="md:row-span-2 group relative rounded-2xl overflow-hidden border"
-        style="background:#1A1A1A;border-color:#2A2A2A;min-height:420px;">
-        <img
-          src={photos[0].src}
-          alt={photos[0].alt}
-          class="work-img absolute inset-0 w-full h-full object-cover object-center"
-          loading="lazy"
-          decoding="async"
-          width="600"
-          height="900"
-        />
-        <!-- Caption overlay -->
-        <div
-          class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400"
-          style="background:linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 100%);"
-        >
-          <p class="text-white text-sm font-body font-400 leading-snug">{photos[0].caption}</p>
+    <div class="columns-1 md:columns-2 lg:columns-3 gap-5 space-y-5">
+      {photos.map(photo => (
+        <div class="break-inside-avoid group relative rounded-2xl overflow-hidden border border-[#2A2A2A] bg-[#1A1A1A]">
+          
+          <img 
+            src={photo.src} 
+            alt={photo.alt} 
+            class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
+            loading="lazy"
+            decoding="async"
+          />
+          
+          <div class="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/80 to-transparent">
+            <p class="text-white text-sm font-body font-400 leading-snug">
+              {photo.caption}
+            </p>
+          </div>
         </div>
-      </div>
-
-      <!-- Foto 2 — columna derecha top -->
-      <div class="md:col-span-2 group relative rounded-2xl overflow-hidden border"
-        style="background:#1A1A1A;border-color:#2A2A2A;min-height:260px;">
-        <img
-          src={photos[1].src}
-          alt={photos[1].alt}
-          class="work-img absolute inset-0 w-full h-full object-cover object-center"
-          loading="lazy"
-          decoding="async"
-          width="900"
-          height="500"
-        />
-        <div
-          class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400"
-          style="background:linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 100%);"
-        >
-          <p class="text-white text-sm font-body font-400 leading-snug">{photos[1].caption}</p>
-        </div>
-      </div>
-
-      <!-- Foto 3 — columna derecha bottom -->
-      <div class="md:col-span-2 group relative rounded-2xl overflow-hidden border"
-        style="background:#1A1A1A;border-color:#2A2A2A;min-height:260px;">
-        <img
-          src={photos[2].src}
-          alt={photos[2].alt}
-          class="work-img absolute inset-0 w-full h-full object-cover object-center"
-          loading="lazy"
-          decoding="async"
-          width="900"
-          height="500"
-        />
-        <div
-          class="absolute bottom-0 left-0 right-0 p-5 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-400"
-          style="background:linear-gradient(to top, rgba(0,0,0,.85) 0%, transparent 100%);"
-        >
-          <p class="text-white text-sm font-body font-400 leading-snug">{photos[2].caption}</p>
-        </div>
-      </div>
-
+      ))}
     </div>
 
-    <!-- Badge row below gallery -->
-    <div class="mt-8 flex flex-wrap gap-3 justify-center">
-      {[
-        'Equipos de seguridad certificados',
-        'Normativa vigente (AEA)',
-        'Trabajos en altura habilitados',
-        'Matriculado en Provincia de Bs.As.',
-      ].map(b => (
-        <span
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-body font-500"
-          style="background:#1A1A1A;border:1px solid #2A2A2A;color:#A8A8A8;"
-        >
-          <span class="w-1 h-1 rounded-full flex-shrink-0" style="background:#FF8C00;"></span>
+    <div class="mt-12 flex flex-wrap gap-3 justify-center">
+      {['Seguridad Certificada', 'Normativa AEA', 'Trabajos en Altura', 'Matriculado'].map(b => (
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[10px] font-600 tracking-wider uppercase border border-[#2A2A2A] bg-[#1A1A1A] text-[#A8A8A8]">
+          <span class="w-1.5 h-1.5 rounded-full" style="background:#FF8C00;"></span>
           {b}
         </span>
       ))}

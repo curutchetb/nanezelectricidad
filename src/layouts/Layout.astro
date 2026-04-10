@@ -13,7 +13,7 @@ const {
   canonicalURL = Astro.url.href,
 } = Astro.props;
 
-const siteURL = 'https://nanezelectricidad.com.ar';
+const siteURL = 'https://nanezelectricidad.vercel.app/';
 const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteURL}${ogImage}`;
 ---
 <!DOCTYPE html>
@@ -51,6 +51,10 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteURL}${ogImage}
     <meta name="twitter:image" content={fullOgImage} />
 
     <!-- WhatsApp / iMessage preview (uses OG tags above) -->
+<meta property="og:url" content="https://nanezelectricidad.vercel.app/" />
+<meta property="og:image" content="https://nanezelectricidad.vercel.app/og-image.webp />
+
+
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="/logo.webp" />
     <link rel="apple-touch-icon" href="/logo.webp" />
@@ -70,7 +74,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteURL}${ogImage}
       "@type": "ElectricalContractor",
       "name": "Ñañez & Co. Electricidad",
       "description": "Electricista matriculado en Salto, Buenos Aires. Instalaciones residenciales y comerciales.",
-      "url": "https://nanezelectricidad.com.ar",
+      "url": "https://nanezelectricidad.vercel.app/",
       "telephone": "+5492474472101",
       "address": {
         "@type": "PostalAddress",
